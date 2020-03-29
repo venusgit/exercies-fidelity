@@ -1,4 +1,4 @@
-package com.fidelity.exercise;
+package com.fidelity.exercise.constants;
 
 public class Constants {
     public static final String USD = "usd";

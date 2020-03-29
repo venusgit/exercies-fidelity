@@ -1,5 +1,6 @@
 package com.fidelity.exercise.service;
 
+import com.fidelity.exercise.factory.CurrencyFactory;
 import com.fidelity.exercise.model.MyCurrency;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +10,10 @@ import java.util.Map;
 public class CurrencyServiceImpl implements CurrencyService {
 
     @Override
-    public String getChanges(MyCurrency currency, Integer amount) {
+    public String getChanges(String currencyType, Integer amount) throws Exception {
 
-        Map<Integer, String> denominationsMap = currency.getDenominations();
+        MyCurrency myCurrency = CurrencyFactory.getCurrency(currencyType);
+        Map<Integer, String> denominationsMap = myCurrency.getDenominations();
         StringBuilder output = new StringBuilder();
         int den = 0;
         int rem = amount;

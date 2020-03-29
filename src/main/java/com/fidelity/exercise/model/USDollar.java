@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class USDollar extends MyCurrency {
+public class USDollar implements MyCurrency {
 
     public Map<Integer, String> getDenominations() {
         Map<Integer, String> denMap = new TreeMap<>(Collections.reverseOrder());
