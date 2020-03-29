@@ -12,6 +12,9 @@ public class CurrencyServiceImpl implements CurrencyService {
     @Override
     public String getChanges(String currencyType, Integer amount) throws Exception {
 
+        if (amount == 0) {
+            throw new IllegalArgumentException("Amount should greater than zero");
+        }
         MyCurrency myCurrency = CurrencyFactory.getCurrency(currencyType);
         Map<Integer, String> denominationsMap = myCurrency.getDenominations();
         StringBuilder output = new StringBuilder();
